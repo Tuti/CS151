@@ -21,7 +21,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Grade.h">
+    <ClInclude Include="score.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,10 @@
     <ClCompile Include="TestScores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Grade.cpp">
+    <ClCompile Include="TestScoreV2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
