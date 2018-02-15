@@ -1,3 +1,2 @@
-﻿  TestScores.cpp
-c:\users\josie\github\cs151\testscores\testscores\testscores.cpp(58): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+﻿  TestScoreV2.cpp
   TestScores.vcxproj -> C:\Users\Josie\GitHub\CS151\TestScores\Debug\TestScores.exe

@@ -10,6 +10,7 @@
 #include "score.h"
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ int main()
 	int scores;
 	cout << "Enter amount of scores: " << endl;
 	cin >> scores;
+	cin.ignore(100, '\n');
 
 	Score *list = new Score[scores];
 
@@ -33,13 +35,13 @@ int main()
 
 	ascendingOrder(list, scores);
 
-	cout << "Ascending Tests Scores: " << endl;
+	cout << "\nAscending Tests Scores: " << endl;
 
 	for (int i = 0; i < scores; i++)
 	{
-		cout << "Score[" << i << "]: " << *(list + i)->toString << endl;
+		cout << "Score[" << i << "]: " << list[i].toString() << endl;
 	}
-	cout << "Average Test Score: " << calcAverage(list, scores) << endl;
+	cout << "\nAverage Test Score: " << calcAverage(list, scores) << endl;
 
 	delete list;
 
@@ -49,25 +51,25 @@ int main()
 
 Score getScore()
 {
-	string name;
-	int score;
+	char *input = new char[100];
+	string name, temp;
+	int score, index;
+	
 
-	cout << "Enter name: " << endl;
-	cin >> name;
+	cout << "Enter name-score pairs: " << endl;
+	cin.getline(input, 100);
 
-	cout << "Enter score: " << endl;
-	cin >> score;
+	temp = string(input);
+	index = temp.find_first_of(' ');
+	name = temp.substr(0, index);
+	score = stoi(temp.substr(index), nullptr, 10);
 
-	while (score < 0)
-	{
-		cout << "Enter a valid score: " << endl;
-		cin >> score;
-	}
+	cout << "\n";
 
 	return Score(name, score);
 }
 
-void ascendingOrder(Score someArray[], int size)
+void ascendingOrder(Score *someArray, int size)
 {
 	bool swapped;
 	Score temp;
@@ -78,7 +80,7 @@ void ascendingOrder(Score someArray[], int size)
 
 		for (int i = 0; i < size - 1; i++)
 		{
-			if (*(someArray + i)->getScore > *(someArray + i)->getScore)
+			if (someArray[i].getScore() > someArray[i + 1].getScore())
 			{
 				temp = *(someArray + i);
 				*(someArray + i) = *(someArray + (i + 1));
@@ -97,7 +99,7 @@ double calcAverage(Score *someArray, int size)
 
 	for (int i = 0; i < size; i++)
 	{
-		sum += *(someArray + i)->getScore;
+		sum += someArray[i].getScore();
 	}
 	average = sum / size;
 
