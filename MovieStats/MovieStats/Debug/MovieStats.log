@@ -1,0 +1,3 @@
+﻿  MovieStats.cpp
+c:\users\josie\github\cs151\moviestats\moviestats\moviestats.cpp(73): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  MovieStats.vcxproj -> C:\Users\Josie\GitHub\CS151\MovieStats\Debug\MovieStats.exe
