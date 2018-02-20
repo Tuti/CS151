@@ -1,0 +1,3 @@
+﻿  PieAverages.cpp
+c:\users\josie\source\repos\pieaverages\pieaverages\pieaverages.cpp(70): warning C4715: 'CalculateMode': not all control paths return a value
+  PieAverages.vcxproj -> C:\Users\Josie\source\repos\PieAverages\Debug\PieAverages.exe
