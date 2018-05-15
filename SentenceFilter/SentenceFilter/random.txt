@@ -1,0 +1,5 @@
+for sentencefilter.cpp
+
+programming is fun. i like keyboards. my name is jack.
+today is monday. i'm excited for the avengers.
+

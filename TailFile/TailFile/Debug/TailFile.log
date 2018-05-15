@@ -1,0 +1,5 @@
+﻿  TailFile.cpp
+c:\users\josie\github\cs151\tailfile\tailfile\tailfile.cpp(51): warning C4101: 'e': unreferenced local variable
+c:\users\josie\github\cs151\tailfile\tailfile\tailfile.cpp(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\josie\github\cs151\tailfile\tailfile\tailfile.cpp(75): warning C4018: '<': signed/unsigned mismatch
+  TailFile.vcxproj -> C:\Users\Josie\GitHub\CS151\TailFile\Debug\TailFile.exe

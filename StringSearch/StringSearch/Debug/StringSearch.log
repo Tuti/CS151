@@ -1,0 +1,6 @@
+﻿  StringSearch.cpp
+c:\users\josie\github\cs151\stringsearch\stringsearch\stringsearch.cpp(56): warning C4101: 'e': unreferenced local variable
+c:\users\josie\github\cs151\stringsearch\stringsearch\stringsearch.cpp(77): warning C4018: '<': signed/unsigned mismatch
+c:\users\josie\github\cs151\stringsearch\stringsearch\stringsearch.cpp(94): warning C4018: '<': signed/unsigned mismatch
+c:\users\josie\github\cs151\stringsearch\stringsearch\stringsearch.cpp(118): warning C4018: '<': signed/unsigned mismatch
+  StringSearch.vcxproj -> C:\Users\Josie\GitHub\CS151\StringSearch\Debug\StringSearch.exe

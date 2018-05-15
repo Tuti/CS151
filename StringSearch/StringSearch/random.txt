@@ -1,0 +1,6 @@
+random.txt for stringsearch.cpp
+
+Rick: Not so fast Morty, you heard your mom. We’ve got adventures to go on Morty just you and me, and sometimes your sister and sometimes your mom but never your dad. You wanta know why Morty? Because he crossed me.
+Morty: Okay Rick take it easy that’s dark
+Rick: Oh it gets darker Morty, welcome to darkest year of our adventures. First thing that’s different, no more dad Morty. He threatened to turn me into the government so I made him and the government go away.
+Morty: Oh fuck
