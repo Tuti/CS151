@@ -1,4 +1,6 @@
 #pragma once
+
+#include "stdafx.h"
 #include <string>
 #include <vector>
 using namespace std;
@@ -6,67 +8,96 @@ using namespace std;
 class Ship
 {
 	int size;
-	bool alive;
-	vector<string> mapLocation;
+	string mapLocation;
 
 public:
 	Ship();
-	Ship(int size, vector<string> mapLocation);
+	Ship(const int size, const string &mapLocation);
 
-	int getSize();
-	vector<string> getMapLocation();
-	bool isAlive();
+	int getSize() const;
+	string getMapLocation() const;
 
 	void setSize(int size);
-	void setAlive(bool alive);
-	void setLocation(vector<string> mapLocation);
-	
-	bool checkTile(string location);
+	void setLocation(string mapLocation);
 };
 
 class Player 
 {
 	string playerName;
-	char friendlyMap[10][10];
-	char enemyMap[10][10];
-	vector<Ship> battleShipGroup;
-	
-public: 
+	char **friendlyMap;
+	char **enemyMap;
+	int shipsAlive;
+	vector<Ship> battleShipGroup; //might be redundant, check later
+public: 	
+
 	Player();
 	Player(string playerName);
-	Player(string playerName, char friendlyMap[10][10], char FriendlyMap[10][10]);
-	
-	string getName();
-	char* getFriendlyMap();
-	char* getEnemyMap();
-	vector<Ship> getBattleShipGroup();
+	Player(string playerName, char **friendlyMap, char **enemyMap);
+	~Player();
 
-	void setName(string name);
-	void setFriendlyMap(char map[10][10]);
-	void setEnemyMap(char map[10][10]);
-	void setBattleShipGroup(vector<Ship> battleshipgroup);
+	string getName() const;
+	char** getFriendlyMap() const;
+	char** getEnemyMap() const;
+	vector<Ship> getBattleShipGroup() const;
 
-	void printBoard();
-	void printFriendlyMap();
-	void printEnemyMap();
+	void setName(const string &name);
+	void setFriendlyMap(char **map);
+	void setEnemyMap(char **map);
+	void setBattleShipGroup(const vector<Ship> &battleshipgroup);
 
-	void placeAllShips();
-	Ship placeShip(int size);
-	 
-
+	void addShipToGroup(const Ship &ship);
+	bool isShipAlive(const Ship &ship) const;
+	bool isBattleGroupAlive() const;
 };
 
 
 class Game
 {
 	bool gameOver;
-	bool turn;
-	int playerTurn;
+	bool player1Turn;
+	int turnCountTotal;
+
 	Player player1;
 	Player player2;
 	Player winner;
 
 public: 
+	static const char WATER_TILE = ' ';
+	static const char SHIP_TILE = '*';
+	static const char SHIP_TILE_HIT = '!';
+	static const char SHOT_HIT_TILE = 'X';
+	static const char SHOT_MISSED_TILE = '0';
+	static const char yAxis[];
+	static const int shipSizes[];
+	static const int shipCount = 5;
 
 	Game();
+	Game(const string &player1, const string &player2);
+
+	Player &getPlayer1();
+	Player &getPlayer2();
+
+	void setWinner(Player &winner);
+
+	void printBoard();
+	void printFriendlyMap(const Player &current);
+	void printEnemyMap(const Player &enemy);
+	void placeAllShips(const Player &player);
+
+	bool isValidFormat(string coordinate);
+	bool isValidAttackFormat(string coordinate);
+	bool isValidPlacement(char **map, string coordinate, int size);
+	string getCoordinatesFromUser(char **map, int size);
+	Ship placeShip(const Player &player, int size);
+
+	void prep2PlayerGame();
+	void playGame();
+	string attackCoordinate(const Player &current, const Player &enemy);
+	void printWinner();
 };
+
+class ImproperFormat
+{};
+
+class InvalidPlacement
+{};
