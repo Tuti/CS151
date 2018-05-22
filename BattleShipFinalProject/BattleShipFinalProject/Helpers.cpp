@@ -508,49 +508,46 @@ string Game::attackCoordinate(const Player &current, const Player &enemy)
 
 void Game::playGame()
 {
-	string message;
-	while (player1.isBattleGroupAlive() && player2.isBattleGroupAlive())
+	string message; 
+
+	system("cls");
+	player1Turn = true;
+	cout << "Player 1 Turn (" << player1.getName() << "):\n";
+	Sleep(2000);
+
+	printBoard();
+	message = attackCoordinate(player1, player2);
+	system("cls");
+	cout << message << "\n";
+	printBoard();
+	Sleep(2000);
+
+	if (!player2.isBattleGroupAlive())
 	{
-		system("cls");
-		player1Turn = true;
-		cout << "Player 1 Turn:\n";
-		Sleep(2000);
-		system("cls");
+		setWinner(player1);
+		return;
+	}
 
-		printBoard();
-		message = attackCoordinate(player1, player2);
-		system("cls");
-		cout << message << "\n";
-		printBoard();
-		Sleep(2000);
-		
-		if (!player2.isBattleGroupAlive())
-		{
-			setWinner(player1);
-			return;
-		}
+	system("cls");
+	player1Turn = false; //end of turn
+	cout << "Turn ended...";
+	Sleep(2000);
 
-		system("cls");
-		player1Turn = false; //end of turn
-		cout << "Turn ended...";
-		Sleep(2000);
-		
-		system("cls");
-		cout << "Player 2 Turn:\n";
-		Sleep(2000);
+	system("cls");
+	cout << "Player 2 Turn (" << player2.getName() << "):\n";
+	Sleep(2000);
 
-		printBoard();
-		message = attackCoordinate(player1, player2);
-		system("cls");
-		cout << message << "\n";
-		printBoard();
-		Sleep(2000);
+	printBoard();
+	message = attackCoordinate(player1, player2);
+	system("cls");
+	cout << message << "\n";
+	printBoard();
+	Sleep(2000);
 
-		if (!player1.isBattleGroupAlive())
-		{
-			setWinner(player2);
-			return;
-		}
+	if (!player1.isBattleGroupAlive())
+	{
+		setWinner(player2);
+		return;
 	}
 
 	Sleep(1000);
